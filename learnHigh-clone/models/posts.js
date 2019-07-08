@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Post.associate = function(models) {
     // associations can be defined here
-    models.Post.belongsTo(models.user, {
+    models.Post.belongsTo(models.user, { 
       onDelete: 'CASCADE',
       foreignKey: {
         allowNull: false

@@ -3,12 +3,11 @@ module.exports = (sequelize, DataTypes) => {
   const Comment = sequelize.define('Comment', {
     postid: DataTypes.INTEGER,
     commentData: DataTypes.STRING,
-    commentBy: DataTypes.STRING,
-    image: DataTypes.STRING
+    commentBy: DataTypes.STRING
   }, {});
   // Comment.associate = function(models) {
   //   // associations can be defined here
-  //   models.Comment.belongsTo(models.Post, {
+  //   models.Comment.belongsTo(models.user, {
   //     onDelete: "CASCADE",
   //     foreignKey: {
   //       allowNull: false

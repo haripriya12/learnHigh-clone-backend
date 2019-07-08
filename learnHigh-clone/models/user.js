@@ -12,8 +12,14 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'cascade',
       foreignKey: {
         allowNull: false
-      }
+      } 
     });
+    // models.user.hasMany(models.Comment, {
+    //   onDelete: 'cascade',
+    //   foreignKey: {
+    //     allowNull: false
+    //   }
+    // })
   };
   return user;
 };
