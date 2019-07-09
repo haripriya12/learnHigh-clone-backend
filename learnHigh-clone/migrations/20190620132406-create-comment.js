@@ -12,6 +12,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
+      userId: {
+        foreignKey: true,
+        type: Sequelize.INTEGER
+      },  
       commentData: {
         type: Sequelize.STRING
       },

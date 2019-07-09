@@ -81,6 +81,7 @@ router.get('/posts/:postID', function (req, res){
 router.get('/posts', function(req, res){
   console.log(req.body)
   models.Post.findAll({
+    order:[['id','DESC']],
     include: [ models.user ]
   }).then(users => res.json({
     error: false,
@@ -99,6 +100,8 @@ router.get('/posts/tag/:Tag', function(req, res) {   //need to change
   console.log(req.body.tag)
   console.log("in params", req.params.Tag)
   models.Post.findAll({
+    order:[['id','DESC']],
+    include: [models.user],
     where: {
       tag: req.params.Tag
     }
@@ -122,7 +125,8 @@ router.post('/posts/:postID/comments', function(req, res){  //need to change
   models.Comment.create({
     postid: req.params.postID,
     commentData: req.body.commentData,
-    commentBy: req.body.commentBy, 
+    commentBy: req.body.commentBy,
+    userId: req.body.userId 
     //commentedby: req.body.commentedby,
     // image: req.body.image
   })
@@ -192,6 +196,8 @@ router.get('/posts/:postID/comments/:commentID', function (req, res){
 
 router.get('/posts/:postID/comments', function(req, res){
   models.Comment.findAll({
+    order:[['id','DESC']],
+    include: [models.user],
     where: {
       postid: req.params.postID
     }
